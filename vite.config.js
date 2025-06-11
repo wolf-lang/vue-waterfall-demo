@@ -9,7 +9,10 @@ export default defineConfig({
     vue(),
     viteMockServe({
       mockPath: './mock',
-      localEnabled: true
+      localEnabled: true,
+      prodEnabled: true,
+      injectCode: `import { setupMockServer } from './mockProdServer'; setupMockServer();`,
+      injectFile: './src/main.js'
     })
   ],
   resolve: {
