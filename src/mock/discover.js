@@ -34,6 +34,8 @@ function genAllData(type = 'A', total = 100) {
   })
 }
 
+console.log('discover')
+
 export default [
   {
     url: '/api/discover',
@@ -45,6 +47,15 @@ export default [
       const all = genAllData(type, 100)
       const list = all.slice((page - 1) * pageSize, page * pageSize)
       return { list }
+    }
+  }, 
+  {
+    url: '/api/ping',
+    method: 'get',
+    response: () => {
+      return {
+        message: 'pong'
+      }
     }
   }
 ]
